@@ -30,7 +30,7 @@ describe("Customer unit test", () => {
 
     let address = new Address("street", 123, "00000000", "city");
 
-    customer.address = address;
+    customer.changeAddress(address);
 
     customer.activate();
 
