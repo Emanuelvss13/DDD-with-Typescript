@@ -28,6 +28,10 @@ export class OrderItem {
     return this._name;
   }
 
+  get productId() {
+    return this._productId;
+  }
+
   get quantity() {
     return this._quantity;
   }

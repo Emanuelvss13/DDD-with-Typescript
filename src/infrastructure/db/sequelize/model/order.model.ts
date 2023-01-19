@@ -8,6 +8,7 @@ import {
   Table,
 } from "sequelize-typescript";
 import { CustomerModel } from "./customer.model";
+import { OrderItemModel } from "./order-item.model";
 
 @Table({
   tableName: "orders",
@@ -15,19 +16,19 @@ import { CustomerModel } from "./customer.model";
 })
 export class OrderModel extends Model {
   @PrimaryKey
-  @Column({ allowNull: true })
+  @Column({ allowNull: false })
   declare id: string;
 
   @ForeignKey(() => CustomerModel)
-  @Column({ allowNull: true })
+  @Column({ allowNull: false })
   declare customer_id: string;
 
   @BelongsTo(() => CustomerModel)
   declare customer: CustomerModel;
 
-  @HasMany(() => OrderModel)
-  declare items: OrderModel[];
+  @HasMany(() => OrderItemModel)
+  declare items: OrderItemModel[];
 
-  @Column({ allowNull: true })
+  @Column({ allowNull: false })
   declare total: number;
 }
