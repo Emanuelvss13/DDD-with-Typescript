@@ -20,6 +20,18 @@ export class OrderItem {
     this.validate();
   }
 
+  get id() {
+    return this._id;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  get quantity() {
+    return this._quantity;
+  }
+
   validate(): boolean {
     if (this._quantity <= 0) {
       throw new Error("Invalid quantity");
